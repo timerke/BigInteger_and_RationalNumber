@@ -7,10 +7,6 @@
 возможности на примере вычисления факториала числа 10000.
 */
 
-#define __CRTDBG_MAP_ALLOC
-#include <crtdbg.h>
-#define DEBUG_NEW new(_NORMAL_BLOCK, __FILE__, __LINE__)
-#define new DEBUG_NEW
 #include <iostream>
 #include "big_integer.h"
 
@@ -89,6 +85,5 @@ int main()
     std::cout << "100! = " << factorial(100) << "\n";
     std::cout << "1000! = " << factorial(1000) << "\n";
     std::cout << "10000! = " << factorial(10000) << "\n";
-    _CrtDumpMemoryLeaks();
     return 0;
 }
