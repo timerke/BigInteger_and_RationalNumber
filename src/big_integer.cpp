@@ -220,13 +220,13 @@ Big_integer Big_integer::divide(Big_integer* number)
 	// Из numbers1_abs берем столько же цифр в старших разрядах, сколько их всего
 	// в numbers2_abs
 	char* part_digits = new char[number2_abs.size];
-	for (int i = 0; i < number2_abs.size; i++)
+	for (unsigned int i = 0; i < number2_abs.size; i++)
 		part_digits[i] = number1_abs.digits[number1_abs.size - number2_abs.size + i];
 	Big_integer part_number(part_digits, number2_abs.size, 1);
 	delete[] part_digits;
 	// Делим числа столбиком
 	char* reverse_digits_in_result = new char[number1_abs.size];
-	int digits_count = 0; // количество цифр в частном
+	unsigned int digits_count = 0; // количество цифр в частном
 	// Индекс следующей цифры из number1_abs, которую нужно учесть при делении
 	int next_index = number1_abs.size - number2_abs.size - 1;
 	Big_integer spam;
@@ -266,7 +266,7 @@ Big_integer Big_integer::divide(Big_integer* number)
 	}
 	// Переворачиваем цифры
 	char* digits_in_result = new char[digits_count];
-	for (int i = 0; i < digits_count; i++)
+	for (unsigned int i = 0; i < digits_count; i++)
 		digits_in_result[i] = reverse_digits_in_result[digits_count - i - 1];
 	// Получаем частное
 	Big_integer result(digits_in_result, digits_count, result_sign);
