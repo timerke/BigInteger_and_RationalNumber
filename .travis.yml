@@ -6,4 +6,6 @@ script:
 - mkdir bin
 - mkdir -p build/src
 - mkdir -p build/test
+- cmake .
 - make
+- bin/GTests
