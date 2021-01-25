@@ -220,7 +220,7 @@ Big_integer Big_integer::divide(Big_integer* number)
 	// Из numbers1_abs берем столько же цифр в старших разрядах, сколько их всего
 	// в numbers2_abs
 	char* part_digits = new char[number2_abs.size];
-	for (int i = 0; i < number2_abs.size; i++)
+	for (unsigned int i = 0; i < number2_abs.size; i++)
 		part_digits[i] = number1_abs.digits[number1_abs.size - number2_abs.size + i];
 	Big_integer part_number(part_digits, number2_abs.size, 1);
 	delete[] part_digits;
