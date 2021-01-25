@@ -9,10 +9,6 @@
 Лейбница.
 */
 
-#define __CRTDBG_MAP_ALLOC
-#include <crtdbg.h>
-#define DEBUG_NEW new(_NORMAL_BLOCK, __FILE__, __LINE__)
-#define new DEBUG_NEW
 #include <iostream>
 #include "leibniz_row.h"
 #include "rational_number.h"
@@ -68,6 +64,5 @@ int main()
 	std::cout << "Число Пи с учетом n = " << n << " членов ряда Лейбница: Пи = " <<
 		row.calculate_rational_pi(n) << " = " << row.calculate_double_pi(n) << "\n";
 
-	_CrtDumpMemoryLeaks();
 	return 0;
 }
