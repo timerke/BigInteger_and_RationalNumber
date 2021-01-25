@@ -28,11 +28,11 @@ endif()
 
 # Now simply link your own targets against gtest, gmock,
 # etc. as appropriate
-message("Hello, world!)
+message("Hello, world!")
 
 project(BigInteger VERSION 1.0 LANGUAGES CXX)
 add_executable(BigInteger src/main.cpp src/big_integer.cpp)
-set_target_properties(BigInteger PROPERIES CXX_STANDARD 11)
+set_target_properties(BigInteger PROPERTIES CXX_STANDARD 11)
 set_property(TARGET BigInteger PROPERTY CXX_STANDARD_REQUIRED ON)
 set_target_properties(BigInteger PROPERTIES RUNTIME_OUTPUT_DIRECTORY "./bin")
 
