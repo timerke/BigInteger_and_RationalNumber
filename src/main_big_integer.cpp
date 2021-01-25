@@ -85,5 +85,6 @@ int main()
     std::cout << "100! = " << factorial(100) << "\n";
     std::cout << "1000! = " << factorial(1000) << "\n";
     std::cout << "10000! = " << factorial(10000) << "\n";
+
     return 0;
 }
