@@ -12,3 +12,6 @@ ExternalProject_Add(googletest
     INSTALL_COMMAND ""
     TEST_COMMAND ""
 )
+
+set_target_properties(googletest PROPERTIES CXX_STANDARD 11)
+set_target_properties(googletest PROPERTIES CXX_STANDARD_REQUIRED ON)

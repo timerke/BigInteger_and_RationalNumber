@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.8.2)
 
+message("Googletest is cloned from repository...")
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
 execute_process(COMMAND "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
@@ -28,15 +29,30 @@ if(CMAKE_VERSION VERSION_LESS 2.8.11)
     )
 endif()
 
+# Устанавливаем стандарты для компиляции библиотеки googletest
+set_target_properties(gtest gtest_main gmock gmock_main PROPERTIES CXX_STANDARD 11)
+set_target_properties(gtest gtest_main gmock gmock_main PROPERTIES CXX_STANDARD_REQUIRED ON)
+message("Googletest is cloned")
+
 # Now simply link your own targets against gtest, gmock,
 # etc. as appropriate
-message("Hello, world!")
 
+message("Project BigInteger building is started...")
 project(BigInteger LANGUAGES CXX)
 add_executable(BigInteger src/main.cpp src/big_integer.cpp)
 set_target_properties(BigInteger PROPERTIES CXX_STANDARD 11)
-set_property(TARGET BigInteger PROPERTY CXX_STANDARD_REQUIRED ON)
+set_target_properties(BigInteger PROPERTIES CXX_STANDARD_REQUIRED ON)
 set_target_properties(BigInteger PROPERTIES RUNTIME_OUTPUT_DIRECTORY "./bin")
+message("Project BigInteger building is finished")
 
-message("Good by, world!")
+message("Project GTests building is started...")
+project(GTests LANGUAGES CXX)
+add_executable(GTests test/test.cpp src/big_integer.cpp)
+set_target_properties(GTests PROPERTIES CXX_STANDARD 11)
+set_target_properties(GTests PROPERTIES CXX_STANDARD_REQUIRED ON)
+set_target_properties(GTests PROPERTIES RUNTIME_OUTPUT_DIRECTORY "./bin")
+target_link_libraries(GTests gtest gtest_main)
+message("Project GTests building is finished")
+
 install(TARGETS BigInteger RUNTIME DESTINATION bin)
+install(TARGETS GTests RUNTIME DESTINATION bin)
