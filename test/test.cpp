@@ -206,6 +206,162 @@ TEST(Factorial_test, Test1)
 	ASSERT_TRUE(big_int == result);
 }
 
+// Тест на сравнение <
+TEST(Compare_less, Test1)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int1(NUMBER1);
+	Big_integer big_int2(NUMBER2);
+	ASSERT_EQ(big_int1 < big_int2, NUMBER1 < NUMBER2);
+}
+
+TEST(Compare_less, Test2)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int(NUMBER1);
+	ASSERT_EQ(big_int < NUMBER2, NUMBER1 < NUMBER2);
+}
+
+TEST(Compare_less, Test3)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int(NUMBER1);
+	ASSERT_EQ(NUMBER2 < big_int, NUMBER2 < NUMBER1);
+}
+
+// Тест на сравнение <=
+TEST(Compare_less_or_equal, Test1)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int1(NUMBER1);
+	Big_integer big_int2(NUMBER2);
+	ASSERT_EQ(big_int1 <= big_int2, NUMBER1 <= NUMBER2);
+}
+
+TEST(Compare_less_or_equal, Test2)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = 9032;
+	Big_integer big_int(NUMBER1);
+	ASSERT_EQ(big_int <= NUMBER2, NUMBER1 <= NUMBER2);
+}
+
+TEST(Compare_less_or_equal, Test3)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int(NUMBER1);
+	ASSERT_EQ(NUMBER2 <= big_int, NUMBER2 <= NUMBER1);
+}
+
+// Тест на сравнение >
+TEST(Compare_more, Test1)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int1(NUMBER1);
+	Big_integer big_int2(NUMBER2);
+	ASSERT_EQ(big_int1 > big_int2, NUMBER1 > NUMBER2);
+}
+
+TEST(Compare_more, Test2)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int(NUMBER1);
+	ASSERT_EQ(big_int > NUMBER2, NUMBER1 > NUMBER2);
+}
+
+TEST(Compare_more, Test3)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int(NUMBER1);
+	ASSERT_EQ(NUMBER2 > big_int, NUMBER2 > NUMBER1);
+}
+
+// Тест на сравнение >=
+TEST(Compare_more_or_equal, Test1)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int1(NUMBER1);
+	Big_integer big_int2(NUMBER2);
+	ASSERT_EQ(big_int1 >= big_int2, NUMBER1 >= NUMBER2);
+}
+
+TEST(Compare_more_or_equal, Test2)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = 9032;
+	Big_integer big_int(NUMBER1);
+	ASSERT_EQ(big_int >= NUMBER2, NUMBER1 >= NUMBER2);
+}
+
+TEST(Compare_more_or_equal, Test3)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int(NUMBER1);
+	ASSERT_EQ(NUMBER2 >= big_int, NUMBER2 >= NUMBER1);
+}
+
+// Тест на сравнение ==
+TEST(Compare_equal, Test1)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int1(NUMBER1);
+	Big_integer big_int2(NUMBER2);
+	ASSERT_EQ(big_int1 == big_int2, NUMBER1 == NUMBER2);
+}
+
+TEST(Compare_equal, Test2)
+{
+	const int NUMBER1 = -892;
+	const int NUMBER2 = -892;
+	Big_integer big_int(NUMBER1);
+	ASSERT_EQ(big_int == NUMBER2, NUMBER1 == NUMBER2);
+}
+
+TEST(Compare_equal, Test3)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int(NUMBER1);
+	ASSERT_EQ(NUMBER2 == big_int, NUMBER2 == NUMBER1);
+}
+
+// Тест на сравнение !=
+TEST(Compare_not_equal, Test1)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int1(NUMBER1);
+	Big_integer big_int2(NUMBER2);
+	ASSERT_EQ(big_int1 != big_int2, NUMBER1 != NUMBER2);
+}
+
+TEST(Compare_not_equal, Test2)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int(NUMBER1);
+	ASSERT_EQ(big_int != NUMBER2, NUMBER1 != NUMBER2);
+}
+
+TEST(Compare_not_equal, Test3)
+{
+	const int NUMBER1 = 9032;
+	const int NUMBER2 = -892;
+	Big_integer big_int(NUMBER1);
+	ASSERT_EQ(NUMBER2 != big_int, NUMBER2 != NUMBER1);
+}
+
 int main(int argc, char* argv[])
 {
 	::testing::InitGoogleTest(&argc, argv);

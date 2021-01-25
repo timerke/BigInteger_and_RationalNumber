@@ -220,13 +220,13 @@ Big_integer Big_integer::divide(Big_integer* number)
 	// Из numbers1_abs берем столько же цифр в старших разрядах, сколько их всего
 	// в numbers2_abs
 	char* part_digits = new char[number2_abs.size];
-	for (unsigned int i = 0; i < number2_abs.size; i++)
+	for (int i = 0; i < number2_abs.size; i++)
 		part_digits[i] = number1_abs.digits[number1_abs.size - number2_abs.size + i];
 	Big_integer part_number(part_digits, number2_abs.size, 1);
 	delete[] part_digits;
 	// Делим числа столбиком
 	char* reverse_digits_in_result = new char[number1_abs.size];
-	unsigned int digits_count = 0; // количество цифр в частном
+	int digits_count = 0; // количество цифр в частном
 	// Индекс следующей цифры из number1_abs, которую нужно учесть при делении
 	int next_index = number1_abs.size - number2_abs.size - 1;
 	Big_integer spam;
@@ -266,7 +266,7 @@ Big_integer Big_integer::divide(Big_integer* number)
 	}
 	// Переворачиваем цифры
 	char* digits_in_result = new char[digits_count];
-	for (unsigned int i = 0; i < digits_count; i++)
+	for (int i = 0; i < digits_count; i++)
 		digits_in_result[i] = reverse_digits_in_result[digits_count - i - 1];
 	// Получаем частное
 	Big_integer result(digits_in_result, digits_count, result_sign);
@@ -691,7 +691,7 @@ Big_integer operator % (int number1, Big_integer number2)
 /**
  * Перегрузка оператора сравнения < для чисел типа Big_integer.
  */
-bool operator < (Big_integer& number1, Big_integer& number2)
+bool operator < (Big_integer number1, Big_integer number2)
 {
 	// Сначала сравниваем знаки чисел
 	if (number1.sign < number2.sign)
@@ -727,7 +727,7 @@ bool operator < (Big_integer& number1, Big_integer& number2)
 /**
  * Перегрузка оператора сравнения < для чисел типа Big_integer и int.
  */
-bool operator < (Big_integer& number1, int number2)
+bool operator < (Big_integer number1, int number2)
 {
 	Big_integer new_number(number2);
 	return number1 < new_number;
@@ -736,7 +736,7 @@ bool operator < (Big_integer& number1, int number2)
 /**
  * Перегрузка оператора сравнения < для чисел типа int и Big_integer.
  */
-bool operator < (int number1, Big_integer& number2)
+bool operator < (int number1, Big_integer number2)
 {
 	Big_integer new_number(number1);
 	return new_number < number2;
@@ -745,7 +745,7 @@ bool operator < (int number1, Big_integer& number2)
 /**
  * Перегрузка оператора сравнения <= для чисел типа Big_integer.
  */
-bool operator <= (Big_integer& number1, Big_integer& number2)
+bool operator <= (Big_integer number1, Big_integer number2)
 {
 	if (number1 == number2)
 		return true;
@@ -755,7 +755,7 @@ bool operator <= (Big_integer& number1, Big_integer& number2)
 /**
  * Перегрузка оператора сравнения < для чисел типа Big_integer и int.
  */
-bool operator <= (Big_integer& number1, int number2)
+bool operator <= (Big_integer number1, int number2)
 {
 	Big_integer new_number(number2);
 	if (number1 == number2)
@@ -766,7 +766,7 @@ bool operator <= (Big_integer& number1, int number2)
 /**
  * Перегрузка оператора сравнения < для чисел типа int и Big_integer.
  */
-bool operator <= (int number1, Big_integer& number2)
+bool operator <= (int number1, Big_integer number2)
 {
 	Big_integer new_number(number1);
 	if (new_number == number2)
@@ -777,7 +777,7 @@ bool operator <= (int number1, Big_integer& number2)
 /**
  * Перегрузка оператора сравнения > для чисел типа Big_integer.
  */
-bool operator > (Big_integer& number1, Big_integer& number2)
+bool operator > (Big_integer number1, Big_integer number2)
 {
 	// Сначала сравниваем знаки чисел
 	if (number1.sign < number2.sign)
@@ -813,7 +813,7 @@ bool operator > (Big_integer& number1, Big_integer& number2)
 /**
  * Перегрузка оператора сравнения > для чисел типа Big_integer и int.
  */
-bool operator > (Big_integer& number1, int number2)
+bool operator > (Big_integer number1, int number2)
 {
 	Big_integer new_number(number2);
 	return number1 > new_number;
@@ -822,7 +822,7 @@ bool operator > (Big_integer& number1, int number2)
 /**
  * Перегрузка оператора сравнения > для чисел типа int и Big_integer.
  */
-bool operator > (int number1, Big_integer& number2)
+bool operator > (int number1, Big_integer number2)
 {
 	Big_integer new_number(number1);
 	return new_number > number2;
@@ -831,7 +831,7 @@ bool operator > (int number1, Big_integer& number2)
 /**
  * Перегрузка оператора сравнения >= для чисел типа Big_integer.
  */
-bool operator >= (Big_integer& number1, Big_integer& number2)
+bool operator >= (Big_integer number1, Big_integer number2)
 {
 	if (number1 == number2)
 		return true;
@@ -841,7 +841,7 @@ bool operator >= (Big_integer& number1, Big_integer& number2)
 /**
  * Перегрузка оператора сравнения >= для чисел типа Big_integer и int.
  */
-bool operator >= (Big_integer& number1, int number2)
+bool operator >= (Big_integer number1, int number2)
 {
 	Big_integer new_number(number2);
 	if (number1 == number2)
@@ -852,7 +852,7 @@ bool operator >= (Big_integer& number1, int number2)
 /**
  * Перегрузка оператора сравнения >= для чисел типа int и Big_integer.
  */
-bool operator >= (int number1, Big_integer& number2)
+bool operator >= (int number1, Big_integer number2)
 {
 	Big_integer new_number(number1);
 	if (new_number == number2)
@@ -863,7 +863,7 @@ bool operator >= (int number1, Big_integer& number2)
 /**
  * Перегрузка оператора сравнения == для чисел типа Big_integer.
  */
-bool operator == (Big_integer& number1, Big_integer& number2)
+bool operator == (Big_integer number1, Big_integer number2)
 {
 	// Сначала сравниваем знаки чисел
 	if (number1.sign != number2.sign)
@@ -884,7 +884,7 @@ bool operator == (Big_integer& number1, Big_integer& number2)
 /**
  * Перегрузка оператора сравнения == для чисел типа Big_integer и int.
  */
-bool operator == (Big_integer& number1, int number2)
+bool operator == (Big_integer number1, int number2)
 {
 	Big_integer new_number(number2);
 	return number1 == new_number;
@@ -893,7 +893,7 @@ bool operator == (Big_integer& number1, int number2)
 /**
  * Перегрузка оператора сравнения == для чисел типа int и Big_integer.
  */
-bool operator == (int number1, Big_integer& number2)
+bool operator == (int number1, Big_integer number2)
 {
 	Big_integer new_number(number1);
 	return new_number == number2;
@@ -902,7 +902,7 @@ bool operator == (int number1, Big_integer& number2)
 /**
  * Перегрузка оператора сравнения != для чисел типа Big_integer.
  */
-bool operator != (Big_integer& number1, Big_integer& number2)
+bool operator != (Big_integer number1, Big_integer number2)
 {
 	// Сначала сравниваем знаки чисел
 	if (number1.sign != number2.sign)
@@ -923,7 +923,7 @@ bool operator != (Big_integer& number1, Big_integer& number2)
 /**
  * Перегрузка оператора сравнения != для чисел типа Big_integer и int.
  */
-bool operator != (Big_integer& number1, int number2)
+bool operator != (Big_integer number1, int number2)
 {
 	Big_integer new_number(number2);
 	return number1 != new_number;
@@ -932,7 +932,7 @@ bool operator != (Big_integer& number1, int number2)
 /**
  * Перегрузка оператора сравнения != для чисел типа int и Big_integer.
  */
-bool operator != (int number1, Big_integer& number2)
+bool operator != (int number1, Big_integer number2)
 {
 	Big_integer new_number(number1);
 	return new_number != number2;

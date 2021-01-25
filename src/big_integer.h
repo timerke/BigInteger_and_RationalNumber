@@ -212,41 +212,41 @@ public:
 
 	// Перегрузка операторов сравнения
 	// Перегрузка оператора сравнения < для чисел типа Big_integer
-	friend bool operator < (Big_integer&, Big_integer&);
+	friend bool operator < (Big_integer, Big_integer);
 	// Перегрузка оператора сравнения < для чисел типа Big_integer и int
-	friend bool operator < (Big_integer&, int);
+	friend bool operator < (Big_integer, int);
 	// Перегрузка оператора сравнения < для чисел типа int и Big_integer
-	friend bool operator < (int, Big_integer&);
+	friend bool operator < (int, Big_integer);
 	// Перегрузка оператора сравнения <= для чисел типа Big_integer
-	friend bool operator <= (Big_integer&, Big_integer&);
+	friend bool operator <= (Big_integer, Big_integer);
 	// Перегрузка оператора сравнения <= для чисел типа Big_integer и int
-	friend bool operator <= (Big_integer&, int);
+	friend bool operator <= (Big_integer, int);
 	// Перегрузка оператора сравнения <= для чисел типа int и Big_integer
-	friend bool operator <= (int, Big_integer&);
+	friend bool operator <= (int, Big_integer);
 	// Перегрузка оператора сравнения > для чисел типа Big_integer
-	friend bool operator > (Big_integer&, Big_integer&);
+	friend bool operator > (Big_integer, Big_integer);
 	// Перегрузка оператора сравнения > для чисел типа Big_integer и int
-	friend bool operator > (Big_integer&, int);
+	friend bool operator > (Big_integer, int);
 	// Перегрузка оператора сравнения > для чисел типа int и Big_integer
-	friend bool operator > (int, Big_integer&);
+	friend bool operator > (int, Big_integer);
 	// Перегрузка оператора сравнения >= для чисел типа Big_integer
-	friend bool operator >= (Big_integer&, Big_integer&);
+	friend bool operator >= (Big_integer, Big_integer);
 	// Перегрузка оператора сравнения >= для чисел типа Big_integer и int
-	friend bool operator >= (Big_integer&, int);
+	friend bool operator >= (Big_integer, int);
 	// Перегрузка оператора сравнения >= для чисел типа int и Big_integer
-	friend bool operator >= (int, Big_integer&);
+	friend bool operator >= (int, Big_integer);
 	// Перегрузка оператора сравнения == для чисел типа Big_integer
-	friend bool operator == (Big_integer&, Big_integer&);
+	friend bool operator == (Big_integer, Big_integer);
 	// Перегрузка оператора сравнения == для чисел типа Big_integer и int
-	friend bool operator == (Big_integer&, int);
+	friend bool operator == (Big_integer, int);
 	// Перегрузка оператора сравнения == для чисел типа int и Big_integer
-	friend bool operator == (int, Big_integer&);
+	friend bool operator == (int, Big_integer);
 	// Перегрузка оператора сравнения != для чисел типа Big_integer
-	friend bool operator != (Big_integer&, Big_integer&);
+	friend bool operator != (Big_integer, Big_integer);
 	// Перегрузка оператора сравнения != для чисел типа Big_integer и int
-	friend bool operator != (Big_integer&, int);
+	friend bool operator != (Big_integer, int);
 	// Перегрузка оператора сравнения != для чисел типа int и Big_integer
-	friend bool operator != (int, Big_integer&);
+	friend bool operator != (int, Big_integer);
 };
 
 // Функция вычисляет абсолютное значение числа
